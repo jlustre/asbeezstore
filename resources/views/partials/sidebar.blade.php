@@ -30,6 +30,7 @@
             <a class="collapse-item" href="{{ route('contact') }}">Contact Us</a>
             <a class="collapse-item" href="{{ route('register') }}">Register</a>
             <a class="collapse-item" href="{{ route('login') }}">Login</a>
+            <a class="collapse-item" href="{{ route('logout') }}">Logout</a>
             <a class="collapse-item" href="{{ route('admin.index') }}">Admin</a>
           </div>
         </div>

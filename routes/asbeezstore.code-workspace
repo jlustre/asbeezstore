@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "..\\..\\sbadmin"
+		},
+		{
+			"path": "..\\..\\asbeez"
 		}
 	],
 	"settings": {}

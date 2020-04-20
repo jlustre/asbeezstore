@@ -13,9 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('main', ['pagetitle'=> 'Dashboard']);
+// })->name('main');
+
+Auth::routes();
+
 Route::get('/', function () {
-    return view('home', ['pagetitle'=> 'Dashboard']);
-})->name('home');
+    return view('welcome');
+})->name('welcome');
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'blog'], function () {
     Route::get('', function () {
@@ -33,17 +41,14 @@ Route::group(['prefix' => 'admin'], function () {
     })->name('admin.index');
 });
 
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
+Route::get('/logout', function(){
+    Auth::logout();
+    return Redirect::to('login');
+});
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-
-Route::get('/forgot-password', function () {
-    return view('forgot-password');
-})->name('forgot-password');
+// Route::get('/forgot-password', function () {
+//     return view('forgot-password');
+// })->name('forgot-password');
 
 Route::get('/about', function () {
     return view('about', ['pagetitle'=> 'About Us']);
@@ -52,3 +57,5 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact', ['pagetitle'=> 'Contact Us']);
 })->name('contact');
+
+

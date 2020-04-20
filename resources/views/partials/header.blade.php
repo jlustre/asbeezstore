@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
 
@@ -7,9 +7,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="Joey Lustre">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>Register</title>
+  <title>{{ $pagetitle ?? '' }}</title>
+
+  {{-- This is how to load a custom style from public directory --}}
+  <link rel="stylesheet" href="{{ URL::to('css/app.css') }}">
 
   <!-- Custom fonts for this template-->
   <link href="{{ URL::to('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -17,7 +22,5 @@
 
   <!-- Custom styles for this template-->
   <link href="{{ URL::to('css/sb-admin-2.min.css') }}" rel="stylesheet">
-  {{-- This is how to load a custom style from public directory --}}
-  <link rel="stylesheet" href="{{ URL::to('css/styles.css') }}">
 
 </head>
