@@ -17,13 +17,14 @@ use Illuminate\Support\Facades\Route;
 //     return view('main', ['pagetitle'=> 'Dashboard']);
 // })->name('main');
 
-Auth::routes();
-
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+
 
 Route::group(['prefix' => 'blog'], function () {
     Route::get('', function () {
