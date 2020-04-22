@@ -18,8 +18,8 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+
     return [
-        'sponsor' => strtolower($faker->word(7, 15)),
         'username' => strtolower($faker->unique()->userName()),
         'firstname' => $faker->firstName(),
         'lastname' => $faker->lastName,
@@ -27,5 +27,7 @@ $factory->define(User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'password' => Hash::make('secret'), // password
         'remember_token' => Str::random(10),
+        'sponsor' => strtolower($faker->unique()->userName()),
     ];
+
 });

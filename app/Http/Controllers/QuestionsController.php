@@ -12,7 +12,7 @@ class QuestionsController extends Controller
         //This will prevent to access the pages except index and show
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +26,7 @@ class QuestionsController extends Controller
 
 /**
 * the following is used for debugging
-**/  
+**/
     // public function index()
     // {
     //     \DB::enableQueryLog();
@@ -105,7 +105,7 @@ class QuestionsController extends Controller
      */
     public function destroy(Question $question)
     {
-        $this->authorize('delete', $question); //See QuestionPolicy delete method 
+        $this->authorize('delete', $question); //See QuestionPolicy delete method
         $question->delete();
         return redirect()->route('questions.index')->with('success', "Your question has been deleted!");
     }

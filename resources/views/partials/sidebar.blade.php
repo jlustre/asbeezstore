@@ -32,6 +32,7 @@
             <a class="collapse-item" href="{{ route('login') }}">Login</a>
             <a class="collapse-item" href="{{ route('logout') }}">Logout</a>
             <a class="collapse-item" href="{{ route('admin.index') }}">Admin</a>
+            <a class="collapse-item" href="{{ route('questions.index') }}">Questions</a>
           </div>
         </div>
       </li>

@@ -155,7 +155,7 @@
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Guest</span>
                 <img class="img-profile rounded-circle" title="Welcome Guest" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
             @else
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">JLustre</span>
+        <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->username }}</span>
                 <img class="img-profile rounded-circle" title="Welcome JLustre" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
             @endif
         </a>

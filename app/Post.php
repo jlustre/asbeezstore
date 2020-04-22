@@ -6,22 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 
-class Question extends Model
+class Post extends Model
 {
    //this is used for mass assignment
-   protected $fillable = ['title','body'];
+   protected $fillable = ['title','content'];
 
-   //Relation of this model to user = Each question belongs to a user
+   //Each post belongs to a user
    public function user() {
    	 return $this->belongsTo('App\User');
    }
 
-   //Relationship method
-   public function answers() {
-        return $this->hasMany('App\Answer');
-   }
+  	public function likes() {
+        return $this->hasMany('App\Like');
+    }
 
-   //Attribute mutator
    public function setTitleAttribute($value) {
        $this->attributes['title'] = $value;
        //putting a dash in between each words
@@ -29,8 +27,8 @@ class Question extends Model
    }
 
   public function getUrlAttribute() {
-    	// return route("questions.show", $this->id);
-        return route("questions.show", $this->slug);
+    	// return route("posts.show", $this->id);
+        return route("posts.show", $this->slug);
     }
 
     public function getCreatedDateAttribute() {
@@ -38,16 +36,16 @@ class Question extends Model
     }
 
     public function getStatusAttribute() {
-        if ($this->answers_count > 0) {
-            if ($this->best_answer_id) {
-                return "answered-accepted";
+        if ($this->likes_count > 0) {
+            if ($this->best_like_id) {
+                return "like-accepted";
             }
-            return "answered";
+            return "like";
         }
-        return "unanswered";
+        return "unlike";
     }
 
-    public function getBodyHtmlAttribute() {
-        return \Parsedown::Instance()->Text($this->body);
+    public function getContentHtmlAttribute() {
+        return \Parsedown::Instance()->Text($this->content);
     }
 }
