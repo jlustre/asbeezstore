@@ -9,7 +9,10 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+<title>{{ $pagetitle}}</title>
+
+  {{-- This is how to load a custom style from public directory --}}
+  <link rel="stylesheet" href="{{ URL::to('css/app.css')}}">
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -17,7 +20,6 @@
 
   <!-- Custom styles for this template-->
   <link rel="stylesheet" href="{{ URL::to('css/sb-admin-2.min.css') }}">
-  {{-- This is how to load a custom style from public directory --}}
-  <link rel="stylesheet" href="{{ URL::to('css/styles.css')}}">
+
 
 </head>

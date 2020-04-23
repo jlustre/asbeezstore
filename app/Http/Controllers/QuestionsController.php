@@ -21,7 +21,8 @@ class QuestionsController extends Controller
     public function index()
     {
         $questions = Question::with('user')->latest()->paginate(5);
-        return view('questions.index', compact('questions'));
+        $pagetitle = 'All Questions';
+        return view('questions.index', compact('questions','pagetitle'));
     }
 
 /**
@@ -43,7 +44,8 @@ class QuestionsController extends Controller
     public function create()
     {
         $question = new Question();
-        return view('questions.create', compact('question'));
+        $pagetitle = 'Create Question';
+        return view('questions.create', compact('question','pagetitle'));
     }
 
     /**
@@ -69,7 +71,8 @@ class QuestionsController extends Controller
         // echo ' I am here at line '.__LINE__.'<pre>';
         // print_r($question);
         $question->increment('views');
-        return view('questions.show', compact('question'));
+        $pagetitle = 'Show Question';
+        return view('questions.show', compact('question','pagetitle'));
     }
 
     /**
@@ -81,7 +84,8 @@ class QuestionsController extends Controller
     public function edit(Question $question)
     {
         $this->authorize('update', $question); //See QuestionPolicy update method
-        return view('questions.edit', compact('question'));
+        $pagetitle = 'Edit Question';
+        return view('questions.edit', compact('question','pagetitle'));
     }
 
     /**

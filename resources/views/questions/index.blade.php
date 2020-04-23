@@ -29,7 +29,7 @@
                                     {{ Str::plural('answer', $question->answers_count) }}
                                 </div>
                                 <div class="view">
-                                   {{ $question->answers_count ." ". Str::plural('view', $question->views) }}
+                                   {{ $question->views ." ". Str::plural('view', $question->views) }}
                                 </div>
                             </div>
                             <div class="media-body">
@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
                                 <p class="lead">
-                                    Asked by: <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
+                                    Asked by: <a href="{{ $question->user->url }}">{{ $question->user->username }}</a>
                                     <small class="text-muted">{{ $question->created_date }}</small>
                                 </p>
                                 {{ Str::limit($question->body, 250) }}
