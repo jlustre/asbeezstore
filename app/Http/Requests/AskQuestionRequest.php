@@ -13,7 +13,7 @@ class AskQuestionRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return true; //change to false if the user is not authorized for this request
     }
 
     /**

@@ -25,6 +25,14 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        //use the following if using gate to give access to a certain question
+        // implement it question controller
+        \Gate::define('update-question', function($user, $question){
+            return $user-id == $question->user_id;
+        });
+        \Gate::define('delete-question', function($user, $question){
+            return $user-id == $question->user_id;
+        });
+
     }
 }

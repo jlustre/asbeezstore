@@ -43,7 +43,7 @@ class QuestionsController extends Controller
      */
     public function create()
     {
-        $question = new Question();
+        $question = new Question(); //This uses policy to grant access
         $pagetitle = 'Create Question';
         return view('questions.create', compact('question','pagetitle'));
     }
