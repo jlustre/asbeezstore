@@ -4,6 +4,9 @@
         <div class="text-center">
         <h1 class="h4 text-gray-900 mb-4">{{ __('Welcome Back!') }}</h1>
         </div>
+
+        @include('layouts._messages')
+
         <form class="user" method="POST" action="{{ route('login') }}">
                 @csrf
             <div class="form-group">

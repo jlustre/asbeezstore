@@ -23,9 +23,16 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/change-password', 'Auth\ChangePasswordController@index')->name('change.password');
+Route::post('/change-password', 'Auth\ChangePasswordController@updatepassword')->name('update.password');
 
 Route::middleware('verified')->group(function () {
- // Put protected routes here
+    // Put protected routes here
+    Route::group(['prefix' => 'admin'], function () {
+        Route::get('', function () {
+            return view('admin.index', ['pagetitle'=> 'Admin Dashboard']);
+        })->name('admin.index');
+    });
 });
 
 Route::group(['prefix' => 'blog'], function () {
@@ -36,12 +43,6 @@ Route::group(['prefix' => 'blog'], function () {
     Route::get('create', function () {
         return view('blog.create');
     })->name('blog.create');
-});
-
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('', function () {
-        return view('admin.index', ['pagetitle'=> 'Admin Dashboard']);
-    })->name('admin.index');
 });
 
 Route::get('/logout', function(){

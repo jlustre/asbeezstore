@@ -57,7 +57,7 @@ class QuestionsController extends Controller
     public function store(AskQuestionRequest $request)
     {
         $request->user()->questions()->create($request->only('title','body'));
-        return redirect()->route('questions.index')->with('success', "Your question has been submitted!");
+        return redirect()->route('questions.index')->with('successMsg', "Your question has been submitted!");
     }
 
     /**
@@ -98,7 +98,7 @@ class QuestionsController extends Controller
     public function update(AskQuestionRequest $request, Question $question)
     {
         $question->update($request->only('title','body'));
-        return redirect()->route('questions.index')->with('success', "Your question has been updated!");
+        return redirect()->route('questions.index')->with('successMsg', "Your question has been updated!");
     }
 
     /**
@@ -111,6 +111,6 @@ class QuestionsController extends Controller
     {
         $this->authorize('delete', $question); //See QuestionPolicy delete method
         $question->delete();
-        return redirect()->route('questions.index')->with('success', "Your question has been deleted!");
+        return redirect()->route('questions.index')->with('successMsg', "Your question has been deleted!");
     }
 }

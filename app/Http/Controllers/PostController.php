@@ -55,7 +55,7 @@ class PostsController extends Controller
     public function store(PostRequest $request)
     {
         $request->user()->posts()->create($request->only('title','content'));
-        return redirect()->route('posts.index')->with('success', "Your post has been submitted!");
+        return redirect()->route('posts.index')->with('successMsg', "Your post has been submitted!");
     }
 
     /**
@@ -94,7 +94,7 @@ class PostsController extends Controller
     public function update(PostRequest $request, Post $post)
     {
         $post->update($request->only('title','content'));
-        return redirect()->route('posts.index')->with('success', "Your post has been updated!");
+        return redirect()->route('posts.index')->with('successMsg', "Your post has been updated!");
     }
 
     /**
@@ -107,6 +107,6 @@ class PostsController extends Controller
     {
         $this->authorize('delete', $post); //See PostPolicy delete method
         $post->delete();
-        return redirect()->route('posts.index')->with('success', "Your post has been deleted!");
+        return redirect()->route('posts.index')->with('successMsg', "Your post has been deleted!");
     }
 }

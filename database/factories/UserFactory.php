@@ -28,6 +28,7 @@ $factory->define(User::class, function (Faker $faker) {
         'password' => Hash::make('secret'), // password
         'remember_token' => Str::random(10),
         'sponsor' => strtolower($faker->unique()->userName()),
+        // 'sponsor' => array_random(App\User::pluck('username')->all()),
     ];
 
 });

@@ -8,5 +8,6 @@
 <body>
     <h1>Welcome To AsBeez</h1>
     <p>This page is still under construction!</p>
+    <p><a href="{{ route('home') }}">Go To Dashboard</a></p>
 </body>
 </html>

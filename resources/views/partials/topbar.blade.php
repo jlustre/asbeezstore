@@ -188,6 +188,10 @@
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 {{ __('Logout') }}
             </a>
+        <a class="dropdown-item" href="{{ route('change.password') }}">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                {{ __('Change Password') }}
+            </a>
           @endif
         </div>
       </li>
